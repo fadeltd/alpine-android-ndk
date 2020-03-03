@@ -16,3 +16,20 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-base/Dockerfile
         tags: "latest"
+        tag_names: true
+    - name: Publish Android NDK with SDK 28
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/alpine-android-ndk
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: android-sdk/sdk-28/Dockerfile
+        tags: "sdk-28"
+    - name: Publish Android NDK with SDK 29
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/alpine-android-ndk
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: android-sdk/sdk-29/Dockerfile
+        tags: "latest, sdk-29"
