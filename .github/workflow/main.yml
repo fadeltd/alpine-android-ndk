@@ -33,3 +33,29 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-sdk/sdk-29/Dockerfile
         tags: "latest, sdk-29"
+
+    - name: Publish Base Android NDK with Ruby 2.7.0
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/alpine-android-ndk-ruby-base
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: android-ruby/base-ruby-2.7.0/Dockerfile
+        tags: "latest"
+        tag_names: true
+    - name: Publish Android NDK with SDK 28 and Ruby
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/alpine-android-ndk-ruby
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: android-ruby/sdk-28/Dockerfile
+        tags: "sdk-28-ruby-2.7.0"
+    - name: Publish Android NDK with SDK 29 and Ruby
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/alpine-android-ndk-ruby
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: android-ruby/sdk-29/Dockerfile
+        tags: "latest, sdk-29-ruby-2.7.0"
