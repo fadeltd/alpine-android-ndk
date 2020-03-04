@@ -1,0 +1,26 @@
+name: Test Build Docker
+on:
+  pull_request:
+    branches:
+      - master
+# env:
+#   DOCKERFILES: openjdk;
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: |
+          if [ -f docker-compose.test.yml ]; then
+            docker-compose -f docker-compose.test.yml build
+            docker-compose -f docker-compose.test.yml run sut
+          else
+            DOCKERFILES=$(find . -name *Dockerfile | tr '\n' ';')
+            IFS=';'
+            for LOCATION in $DOCKERFILES; do
+              echo "${LOCATION}"
+              docker build --no-cache -f "${LOCATION}" .
+              # docker build --no-cache -f "${LOCATION}/Dockerfile" .
+            done
+          fi
