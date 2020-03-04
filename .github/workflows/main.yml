@@ -14,7 +14,7 @@ jobs:
         name: fadeltd/openjdk
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: openjdk/Dockerfile
+        dockerfile: openjdk/jdk-8/Dockerfile
         tags: "latest, 8-alpine-3.11"
         tag_names: true
     - name: Publish Base Android NDK
@@ -48,7 +48,7 @@ jobs:
         name: fadeltd/alpine-android-ndk-ruby-base
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: android-ruby/base-ruby-2.7.0/Dockerfile
+        dockerfile: android-ruby/base/Dockerfile
         tags: "latest"
         tag_names: true
     - name: Publish Android NDK with SDK 28 and Ruby

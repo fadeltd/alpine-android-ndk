@@ -2,10 +2,10 @@
 
 ![Build and Publish Docker](https://github.com/fadeltd/alpine-android-ndk/workflows/Build%20and%20Publish%20Docker/badge.svg)
 
-| Alpine Android NDK Base             | Alpine Android NDK        |
-|-------------------------------------|---------------------------|
-| [![docker-base-pulls]][docker-base] | [![docker-pulls]][docker] |
-| [![docker-base-stars]][docker-base] | [![docker-stars]][docker] |
+| Alpine OpenJDK8             | Alpine Android NDK Base             | Alpine Android NDK        |
+|-----------------------------|-------------------------------------|---------------------------|
+| [![openjdk-pulls]][openjdk] | [![docker-base-pulls]][docker-base] | [![docker-pulls]][docker] |
+| [![openjdk-stars]][openjdk] | [![docker-base-stars]][docker-base] | [![docker-stars]][docker] |
 
 All images are based on [openjdk:8-alpine](https://hub.docker.com/r/adoptopenjdk/openjdk8)
 
@@ -34,9 +34,14 @@ All images are based on [openjdk:8-alpine](https://hub.docker.com/r/adoptopenjdk
 | Android 28 (9.0)  | `docker run --rm -it fadeltd/alpine-android-ndk:sdk-28`|
 | Android 29 (10.0) | `docker run --rm -it fadeltd/alpine-android-ndk:sdk-29`|
 
+[openjdk]: https://hub.docker.com/r/fadeltd/openjdk/
+[openjdk-pulls]: https://img.shields.io/docker/pulls/fadeltd/openjdk.svg "Docker Pulls"
+[openjdk-stars]: https://img.shields.io/docker/stars/fadeltd/openjdk.svg "Docker Pulls"
+
 [docker]: https://hub.docker.com/r/fadeltd/alpine-android-ndk/
 [docker-pulls]: https://img.shields.io/docker/pulls/fadeltd/alpine-android-ndk.svg "Docker Pulls"
-[docker-stars]: https://img.shields.io/docker/stars/fadeltd/alpine-android-ndk-ruby.svg "Docker Stars"
+[docker-stars]: https://img.shields.io/docker/stars/fadeltd/alpine-android-ndk.svg "Docker Stars"
+
 [docker-base]: https://hub.docker.com/r/fadeltd/alpine-android-ndk-base/
 [docker-base-pulls]: https://img.shields.io/docker/pulls/fadeltd/alpine-android-ndk-base.svg "Docker Pulls"
 [docker-base-stars]: https://img.shields.io/docker/stars/fadeltd/alpine-android-ndk-base.svg "Docker Stars"
