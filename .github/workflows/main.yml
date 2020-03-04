@@ -15,7 +15,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: openjdk/jdk-8/Dockerfile
-        tags: "latest, 8-alpine-3.11"
+        tags: "latest, 8-alpine3.11"
         tag_names: true
     - name: Publish Base Android NDK
       uses: elgohr/Publish-Docker-Github-Action@master
