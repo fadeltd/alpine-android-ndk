@@ -8,10 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Publish OpenJDK 8u242 Alpine 3.11.3
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/openjdk
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: openjdk/Dockerfile
+        tags: "latest, 8-alpine-3.11"
+        tag_names: true
     - name: Publish Base Android NDK
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: fadeltd/alpine-android-ndk
+        name: fadeltd/alpine-android-ndk-base
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-base/Dockerfile
@@ -33,7 +42,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-sdk/sdk-29/Dockerfile
         tags: "latest, sdk-29"
-
     - name: Publish Base Android NDK with Ruby 2.7.0
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -50,7 +58,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-ruby/sdk-28/Dockerfile
-        tags: "sdk-28-ruby-2.7.0"
+        tags: "2.7.0-sdk28"
     - name: Publish Android NDK with SDK 29 and Ruby
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -58,4 +66,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: android-ruby/sdk-29/Dockerfile
-        tags: "latest, sdk-29-ruby-2.7.0"
+        tags: "latest, 2.7.0-sdk29"
