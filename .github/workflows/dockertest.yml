@@ -4,7 +4,7 @@ on:
     branches:
       - master
 env:
-  DOCKERFILES: openjdk/jdk-8;
+  DOCKERFILES: android-bl/base;
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,7 +21,8 @@ jobs:
             for LOCATION in $DOCKERFILES; do
               echo "Running Build Test for ${LOCATION}"
               # docker build --no-cache -f "${LOCATION}" .
-              docker build --no-cache -f "${LOCATION}/Dockerfile" .
+              cd $LOCATION
+              docker build --no-cache -f Dockerfile .
               echo -e "Build ${LOCATION} Success!\n"
             done
           fi

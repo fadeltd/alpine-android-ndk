@@ -1,5 +1,6 @@
 FROM fadeltd/alpine-android-ndk-base
 LABEL description="Alpine Android NDK Base with Latest Ruby"
+LABEL maintainer="Fadel Trivandi Dipantara <fadeltd@hotmail.com>"
 
 RUN apk add --no-cache \
 		gmp-dev
@@ -15,9 +16,6 @@ RUN set -eux; \
 ENV RUBY_MAJOR 2.7
 ENV RUBY_VERSION 2.7.0
 ENV RUBY_DOWNLOAD_SHA256 27d350a52a02b53034ca0794efe518667d558f152656c2baaf08f3d0c8b02343
-
-# Add make
-RUN apk add --no-cache make
 
 # some of ruby's build scripts are written in ruby
 #   we purge system ruby later to make sure our final image uses what we just built
@@ -40,6 +38,7 @@ RUN set -eux; \
 		libxml2-dev \
 		libxslt-dev \
 		linux-headers \
+		make \
 		ncurses-dev \
 		openssl \
 		openssl-dev \
@@ -115,11 +114,10 @@ RUN set -eux; \
 		| grep -i ruby \
 	; \
 	[ "$(command -v ruby)" = '/usr/local/bin/ruby' ]; \
-# rough smoke test
+# ruby smoke test
 	ruby -v; \
 	gem -v; \
-	bundle -v; \
-	make -v
+	bundle -v
 
 # don't create ".bundle" in all our apps
 ENV GEM_HOME /usr/local/bundle
