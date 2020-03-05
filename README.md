@@ -7,8 +7,6 @@
 | [![openjdk-pulls]][openjdk] | [![docker-base-pulls]][docker-base] | [![docker-pulls]][docker] |
 | [![openjdk-stars]][openjdk] | [![docker-base-stars]][docker-base] | [![docker-stars]][docker] |
 
-All images are based on [openjdk:8-alpine](https://hub.docker.com/r/adoptopenjdk/openjdk8)
-
 ---
 
 > You can use `latest` tag to always use the latest Android SDK version.
