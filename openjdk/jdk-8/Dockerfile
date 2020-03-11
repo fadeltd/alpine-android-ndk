@@ -21,7 +21,7 @@ ARG JAVA_ASSET_URL="${JAVA_BASE_URL}/${JAVA_ASSET}"
 
 ARG JAVA_TMP="/tmp/openjdk8.tgz"
 # ARG JAVA_LIB_PATH="/usr/lib/jvm"
-ARG JAVA_LIB_PATH="/usr/lib
+ARG JAVA_LIB_PATH="/usr/lib"
 # ARG JAVA_JDK="java-1.8-openjdk"
 ARG JAVA_JDK="jdk"
 ENV JAVA_HOME "${JAVA_LIB_PATH}/${JAVA_JDK}"
