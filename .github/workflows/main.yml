@@ -8,6 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Publish Ruby 2.7.1 Git Alpine 3.11.3
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: fadeltd/ruby-git
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: ruby-git/Dockerfile
+        tags: "latest, latest, 2.7.1-alpine3.11"
+        tag_names: true
     - name: Publish OpenJDK 8u242 Alpine 3.11.3
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
